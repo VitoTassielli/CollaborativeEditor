@@ -3,64 +3,50 @@
 	<img src="client/icone/Testo_cropped.png" width="70%" height="70%" align="center">
 </div>
 
-Progetto per il corso di Programmazione di Sistema del Politecnico di Torino.
+## Collaborative Text Editor
+The need to work in a group without the co-presence of the actors in the same physical space, pushes towards the creation of ever more effective support systems for cooperative work. For example, Google provides the Docs suite, through which it's possible to edit, in a cooperative and distributed way, different kind of documents (texts, spreadsheets, presentations) and able to scale large numbers of contemporary users: the solution is based on a set of centralized servers that manage traffic to and from individual clients and release the logic necessary to ensure the concurrent operations' correctness.
 
-## Editor di testo collaborativo
+Programming in C++ we have developed a <b>cooperative text editor</b> which allow simultaneously editing the document to a set of users, guaranteeing the correct result of the insert and edit operations done by different users, regardless of the order in which they are performed (commutativity) and that repeated deletions lead to the same result (idempotence).
 
-La disponibilità di connessioni a larga banda e l’esigenza di lavorare in gruppo senza richiedere necessariamente la compresenza degli attori nello stesso spazio fisico, spinge verso la realizzazione di sistemi di supporto al lavoro cooperativo sempre più efficaci. Ad esempio, Google mette a disposizione la suite Docs, mediante la quale è possibile editare, in modo cooperativo e distribuito, documenti di varia natura (testi, fogli di calcolo, presentazioni) ed in grado di scalare su numeri anche grandi di utenti contemporanei: tale soluzione è basata su un insieme di server centralizzati che gestiscono il traffico da e verso i singoli client e mettono in atto la logica necessaria a garantire la correttezza delle operazioni concorrenti.
+## Installation
+To install C(++)operative Editor, download and install on your Operating System the QT SDK  [http://qt-project.org/downloads](http://qt-project.org/downloads). After that, follow these step:
 
-Quello che abbiamo realizzato, utilizzando il linguaggio C++, è un <b>sistema di editing testuale cooperativo</b> che consenta a uno o più utenti di modificare il contenuto di un documento in contemporanea, garantendo che operazioni di inserimento o modifica diverse, svolte dagli utenti allo stesso tempo, producano gli stessi effetti, indipendentemente dall’ordine con cui sono eseguite sui diversi sistemi in uso (commutatività) e che cancellazioni ripetute portino allo stesso risultato (idempotenza).
+1. Open the shell (CTRL+ALT+T) and position yourself on the directory where the file .run is located.
 
-## Installazione
-Per l'installazione, portatevi nella sezione download del sito ufficiale della libreria  [http://qt-project.org/downloads](http://qt-project.org/downloads) e scegliete il pacchetto di installazione (SDK) per il vostro sistema operativo. Dovete scegliere inoltre anche tra l'installazione online e offline (è consigliata la soluzione offline per motivi di tempo, a meno che non possediate una connessione molto veloce). Una volta scaricato il pacchetto di installazione sequite questi semplici passi:
-
- 1. Aprite la shell (CTRL+ALT+T) e accedete alla cartella di download dove troverete il file scaricato di estensione .run  
-
-2. Rendete il file eseguibile con il comando shell:
+2. Make runnable the file:
    `sudo chmod +x nome-file.run`
 
-3. Eseguite lo script:
+3. Run the script:
 	 `/nome-file.run`
 
-4. Seguite la procedura guidata d'installazione, scegliendo le cartelle in cui installare il framework.
+4. Follow the showed istructions, selecting the directory where install the framework.
 
-Terminata l'installazione (ci vuole un pò di pazienza), vi troverete nel percorso da voi specificato la cartella **QtSdk**, dove si trovano le librerie, la documentazione, QtCreator e tutti gli altri strumenti.
+5. Running ``/server/create_db.sql`` create the database ``user.db``.
 
-5. Creare il database ``user.db`` eseguendo il file ``/server/create_db.sql``. 
+6. Clone the project:
 
-A questo punto non resta che clonare il progetto in questione attraverso il comando:
+`git clone https://github.com/VitoTassielli/CollaborativeEditor.git`
 
-`git clone https://github.com/SimoneDutto/CollaborativeEditor.git`
+7. Open QtCreator and select the project folder.
 
-Quindi lanciamo dal menu di avvio QtCreator e apriamo il nostro progetto.
-
-## Utilizzo
-Una volta avviata l'applicazione, vi ritroverete davanti alla schermata di *Login*:
+## Guide
+Opened the application, there is a *Login* pop-up:
 
 <img src="client/immagini/login2.png" width="40%" height="40%" align="center">
 
-Qui vi viene chiesto di inserire le vostre credenziali.
-
-Se si accede per la prima volta sarà necessario creare un profilo utente, quindi cliccare su *Sign Up*:
+Here you have to set your credentials. If it's your first time, it's necessary to create a new profile, so clink on *Sign Up*:
 
 <img src="client/immagini/signup2.png" width="40%" height="40%" align="center">
 
-In questa pagina vi viene chiesto di registrarvi inserendo username, password e conferma della password. E' anche possibile scegliere un'icona, nel caso in cui non venga fatto ve ne verrà assegnata una in automatico con la vostra iniziale.
-
-Verrete poi reindirizzati alla pagina di Login:
-
-Cliccando sul bottone *Login* arrivete a questa schermata:
+After the *Login*:
 
 <img src="client/immagini/open3.png" width="60%" height="60%" align="center">
 
-Sulla sinistra troverete una lista di file presenti nel filesystem a cui è possibile accedere. 
-Si può inserire l'*URI* di un documento a cui siete stati invitati a collaborare: se il link è corretto il file apparirà tra quelli selezionabili nella lista a sinistra e potrà essere aperto. 
-Infine potete anche decidere di creare un nuovo file.
+On the left there are a list of locally files which you can open or choose to open a shared document thanks to its *URI*: if the link is corret the shared file will show up on the left list. Otherwise you can create a new document from scratch.
 
-Dopo aver scelto quale file aprire, arriverete qui:
+Opened the file:
 
 <img src="client/immagini/main2.png" width="80%" height="80%" align="center">
 
-Il vero e proprio editor di testo. 
-Nel menu in evidenza ci sono le operazioni principali: creazione di un nuovo file, apertura file, le varie funzioni di arricchimento del testo (grassetto, corsivo, sottolineato, allineamento, ...), cronologia delle modifiche e infine il logout. Ben visibile è anche l'*URI* del documento corrente, per un eventuale invito a collaborare. 
-In alto a destra c'è l'icona dell'utente connesso e, man mano che altri utenti aprono lo stesso documento, compaiono anche le loro icone (fino a un massimo di tre utenti, dopodiché i restanti vengono aggiunti ad un contatore che, se cliccato, mostra i loro dettagli).
+On the top menu there are the main operations: create a new document, open a document, many text options (bold, italics, underlined, allignment, ...), changes' history and logout. It's showed the current document's *URI* to invite other people. 
+On top right there is the current profile's icon and, if othere users are online on the same document they will show up with their icon (after three online users it's showed a incremental counter and clicking it there is the completed online users list).
