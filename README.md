@@ -3,7 +3,7 @@
 	<img src="client/icone/Testo_cropped.png" width="70%" height="70%" align="center">
 </div>
 
-## Collaborative Text Editor
+## Collaborative text editor
 The need to work in a group without the co-presence of the actors in the same physical space, pushes towards the creation of ever more effective support systems for cooperative work. For example, Google provides the Docs suite, through which it's possible to edit, in a cooperative and distributed way, different kind of documents (texts, spreadsheets, presentations) and able to scale large numbers of contemporary users: the solution is based on a set of centralized servers that manage traffic to and from individual clients and release the logic necessary to ensure the concurrent operations' correctness.
 
 Programming in C++ we have developed a <b>cooperative text editor</b> which allow simultaneously editing the document to a set of users, guaranteeing the correct result of the insert and edit operations done by different users, regardless of the order in which they are performed (commutativity) and that repeated deletions lead to the same result (idempotence).
